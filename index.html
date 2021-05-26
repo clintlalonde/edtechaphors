@@ -14,7 +14,7 @@
 	    	margin-bottom:3em;
 	    	min-height: 5em;
 	    }
-	    
+
 	    #metaphorical {
 	    	font-size:5vw;
 	    }
@@ -26,28 +26,28 @@
 			color:#fff;
 			font-size: 0.8em;
 			line-height:1.1;
-		}	
-		
+		}
+
 		#footer a {
 			color:#fff;
 		}
 	</style>
-	
+
 
 	<!-- make title your own -->
-    <title>EdTech Metaphors</title>
+    <title>Made up moon shit</title>
   </head>
   <body>
   <!-- where the action happens -->
   <div class="jumbotron">
   <h1 id="metaphorical" class="display-4 text-center">Generate an EdTech Metaphor</h1>
   </div>
-	
+
 	<div id="main" class="container-fluid text-center">
 		<button type="button" class="btn btn-primary btn-lg" id="gimme">Gimme Another</button>
 	</div><!-- #main -->
-	
-	
+
+
 	<div id="footer" class="container-fluid text-center">
 		<p>
 		<!-- background image attribution -->
@@ -56,7 +56,7 @@
 			quick code by <a href="http://cog.dog/"> @cogdog</a> made for <a href="http://blog.edtechie.net/">@edtechie</a> &bull; <a href="https://github.com/cogdog/edtechaphors">available for forking</a>
 		</p>
 	</div>
-	
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -64,21 +64,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
-    
+
     <script>
 	// backstrech the background image -->
 	 $.backstretch("background.jpg");
 
 	// all of the stuff to be randomized is here. Create more arrays to create different structures
 
-	
+
 	 // arrays of metaphors- if a single quote, a apostrophe needed, enter as \'
 	  let metaphor = ['baking a cake', 'a houseplant', 'running a marathon', 'raising a puppy', 'quantum physics', 'visiting an unknown country','the history of porcelain manufacture','the development of New York graffiti styles','the Corn Laws','the Loch Ness monster myth','the CB radio craze of the 70s','the Gargoyles of the Notre Dame','an all you can eat “Around the world” buffet','the growth of interest in vinyl records','a comfortable old coat','knitting','Homers The Iliad','gardening','the ecosystem of a small island','your favourite film','the structure of a typical horror film', 'chasing a cat', 'finding a big stick', 'a local castle', 'real hockey'];
-  
+
   	  // arrays of tech- if a single quote, a apostrophe needed, enter as \'
 	  let tech = ['learning analytics', 'VLE', 'blockchain', 'OER', 'MOOCs', 'personalised learning','Artificial Intelligence','open textbooks','automated assessment','MCQs','digital natives','connectivism','blogging','plagiarism detection sites','lecture capture','Flipped Learning','Facebook','academics use of Twitter','open access publishing','mobile learning','learning styles','LMS','e-portfolios','Wikipedia','student-generated content'];
-	  	 
-	 
+
+
 	  /* Fun random names for the buttons, edit or add more */
 	 let button_names = [
 		'Make Me Another',
@@ -98,17 +98,17 @@
 
 		$('#birdcage').html('<a href="https://twitter.com/intent/tweet?url=' + encodeURI(window.location.href) +'&text=' + encodeURIComponent('Another generated Edtech Metaphor\n\n' + chirp + '\n\nBlame ' + bird  + ' for') + '" target="_blank"><img src="tweet.png" alt="Tweet"></a>');
 	}
-	
+
 
 	// generate the stuff
 	function generate() {
 		// lifted somewhat from https://glitch.com/~spark-chipmunk
 
 		// create different ways of outputting a combination of metaphors and technology (or whatever else you create
-	  
-	  
-	  let options = [`Use ${metaphor[random(metaphor)]} as a metaphor for ${tech[random(tech)]}. `, 
-					 `How is ${metaphor[random(metaphor)]} an analogy for ${tech[random(tech)]}?`, 
+
+
+	  let options = [`Use ${metaphor[random(metaphor)]} as a metaphor for ${tech[random(tech)]}. `,
+					 `How is ${metaphor[random(metaphor)]} an analogy for ${tech[random(tech)]}?`,
 					 `What does ${metaphor[random(metaphor)]} tell us about ${tech[random(tech)]}?`,
 					]
 
@@ -116,25 +116,25 @@
 	  var generated = options[random(options)];
 	 // update the display with place holder for a twitter button
   	  $('#metaphorical').html(generated + '<br /><span id="birdcage"></span>');
-  	  
+
   	  // add the twitter link, change the tweeted name as needed (if you must)
   	  tweet_it_like_a_bluebird( generated, '@cogdog');
 
 	}
-	
-	$(document).ready(function(){	
-		
+
+	$(document).ready(function(){
+
 		$( "#gimme" ).click(function() {
 			// Generate a new thing
 			generate();
-			
+
 			// make the button name random too
 			$("#gimme").html(button_names[random(button_names)]);
-		});	
-			
+		});
+
 	});//ready
 
-	
+
 	</script>
   </body>
 </html>
